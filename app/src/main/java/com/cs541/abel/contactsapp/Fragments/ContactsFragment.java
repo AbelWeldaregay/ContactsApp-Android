@@ -22,7 +22,7 @@ public class ContactsFragment extends Fragment implements AdapterView.OnItemClic
 
     private ListView contactsList;
     private Communicator communicator;
-    private ArrayList<Person> contacts = new ArrayList<Person>();
+    private ArrayList<com.cs541.abel.contactsapp.Models.Person> contacts = new ArrayList<>();
     private static final String FILE_NAME = "ContactsObject";
     private Button addButton;
     private Button deleteButton;

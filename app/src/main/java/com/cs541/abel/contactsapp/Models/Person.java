@@ -1,16 +1,16 @@
 package com.cs541.abel.contactsapp.Models;
 
 import android.net.Uri;
-
+import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
 import java.util.ArrayList;
 
 public class Person {
 
-    private int id;
-    private String name;
-    private String phoneNumber;
-    private Uri imagePath;
-    private ArrayList<Person> connections;
+    public int id;
+    public String name;
+    public String phoneNumber;
+    public Uri imagePath;
+    public ArrayList<Person> connections;
 
     public Person(){}
 
@@ -23,10 +23,9 @@ public class Person {
     }
 
     public Person( String name, String phoneNumber, ArrayList<Person> connections) {
-        this.id = id;
+
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.imagePath = imagePath;
         this.connections = connections;
     }
 
