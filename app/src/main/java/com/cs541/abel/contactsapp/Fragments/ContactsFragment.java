@@ -58,8 +58,10 @@ public class ContactsFragment extends Fragment implements AdapterView.OnItemClic
     public void onResume(){
         super.onResume();
 
+    }
 
-
+    public void checkBoxClicked(View view){
+        // TODO
     }
 
 
