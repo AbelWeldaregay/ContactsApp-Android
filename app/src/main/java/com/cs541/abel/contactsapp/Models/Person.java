@@ -22,6 +22,14 @@ public class Person {
         this.connections = connections;
     }
 
+    public Person( String name, String phoneNumber, ArrayList<Person> connections) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.imagePath = imagePath;
+        this.connections = connections;
+    }
+
     public int getId() {
         return id;
     }
