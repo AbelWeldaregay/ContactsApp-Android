@@ -68,4 +68,28 @@ public class Person {
     public ArrayList<Person> getConnections() {
         return connections;
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) {
+            return false;
+        }
+
+        if(!Person.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+
+        final Person other = (Person) obj;
+
+        if(other.phoneNumber.equals(this.phoneNumber) && other.name.equals(this.name)
+                && this.connections.equals(other.connections)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 }
