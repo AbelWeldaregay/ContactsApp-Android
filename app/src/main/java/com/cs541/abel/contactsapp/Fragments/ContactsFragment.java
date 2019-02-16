@@ -2,6 +2,7 @@ package com.cs541.abel.contactsapp.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -52,7 +53,18 @@ public class ContactsFragment extends Fragment  {
         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, this.contacts);
         this.contactsList.setAdapter(adapter);
 
-        this.deleteButton.setOnClickListener(new View.OnClickListener() {
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+            //Do some stuff
+            Fragment contactDetailsFragment = new ContactDetailsFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment2_container, contactDetailsFragment).addToBackStack("")
+                    .commit();
+        }
+
+
+            this.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox cb;
@@ -93,12 +105,30 @@ public class ContactsFragment extends Fragment  {
             @Override
             public void onClick(View v) {
 
-                Fragment contactDetailsFragment = new ContactDetailsFragment();
+                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
 
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, contactDetailsFragment).addToBackStack("")
-                        .commit();
+                    //Do some stuff
+                    Fragment contactDetailsFragment = new ContactDetailsFragment();
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment2_container, contactDetailsFragment).addToBackStack("")
+                            .commit();
+
+                } else {
+
+
+                    Fragment contactDetailsFragment = new ContactDetailsFragment();
+
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, contactDetailsFragment).addToBackStack("")
+                            .commit();
+
+                }
+
+
+
+
             }
         });
 
@@ -109,13 +139,30 @@ public class ContactsFragment extends Fragment  {
                 Bundle bundle = new Bundle();
                 bundle.putInt("selectedPosition", position);
 
-                Fragment contactsProfileFragment = new ContactsProfileFragment();
-                contactsProfileFragment.setArguments(bundle);
+                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, contactsProfileFragment).addToBackStack("")
-                        .commit();
+                    Fragment contactsProfileFragment = new ContactsProfileFragment();
+                    contactsProfileFragment.setArguments(bundle);
+
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment2_container, contactsProfileFragment).addToBackStack("")
+                            .commit();
+
+
+                } else {
+
+                    Fragment contactsProfileFragment = new ContactsProfileFragment();
+                    contactsProfileFragment.setArguments(bundle);
+
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, contactsProfileFragment).addToBackStack("")
+                            .commit();
+                }
+
+
+
             }
         });
 
