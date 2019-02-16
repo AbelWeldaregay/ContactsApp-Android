@@ -5,11 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,10 +47,46 @@ public class ContactsFragment extends Fragment  {
 
         this.addButton = view.findViewById(R.id.addButton);
         this.contactsList = view.findViewById(R.id.contactsList);
+        this.deleteButton = view.findViewById(R.id.deleteButton);
 
         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, this.contacts);
         this.contactsList.setAdapter(adapter);
-       // this.contactsList.setOnItemClickListener(this);
+
+        this.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox cb;
+                ListView mainListView = view.findViewById(R.id.contactsList);
+                for (int x = 0; x<mainListView.getChildCount();x++){
+
+
+                    cb = (CheckBox) mainListView.getChildAt(x).findViewById(R.id.checkItem);
+                    if(cb.isChecked()){
+                        int pos = (Integer) cb.getTag();
+
+                        if(pos < contacts.size())
+                        {
+                            Log.i("positions","pos: " + Integer.toString(pos) + " size: " + contacts.size());
+                            contacts.remove(pos);
+                        }
+                        else
+                        {
+                            pos = contacts.size() - 1;
+                            Log.i("pos >= size: ","pos: " + Integer.toString(pos) + " size: " + contacts.size());
+
+                            contacts.remove(pos);
+                        }
+
+
+                    }
+                }
+                saveData();
+                PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, contacts);
+                mainListView.setAdapter(adapter);
+
+                Toast.makeText(getContext(), "Deleted Selected Items", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -84,23 +122,6 @@ public class ContactsFragment extends Fragment  {
 
         return view;
     }
-
-
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//        Toast.makeText(getContext(), "item clicked " + Integer.toString(position), Toast.LENGTH_SHORT).show();
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("selectedPosition", position);
-//
-//        Fragment contactsProfileFragment = new ContactsProfileFragment();
-//        contactsProfileFragment.setArguments(bundle);
-//
-//        FragmentManager fragmentManager = getFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.fragment_container, contactsProfileFragment).addToBackStack("")
-//                .commit();
-//    }
 
 
     @Override
