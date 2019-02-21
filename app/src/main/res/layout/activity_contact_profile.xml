@@ -4,33 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activites.MainActivity">
+    tools:context=".Activites.ContactProfileActivity">
 
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/contact_profile_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <fragment
-            android:id="@+id/fragment4"
-            android:name="com.cs541.abel.contactsapp.Fragments.ContactsFragment"
-            android:layout_width="0dp"
-            android:layout_weight=".40"
-            android:layout_height="match_parent" />
-
-
-        <FrameLayout
-            android:id="@+id/fragment2_container"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight=".60">
-        </FrameLayout>
-
-
-    </LinearLayout>
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>

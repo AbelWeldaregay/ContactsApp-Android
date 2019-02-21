@@ -4,26 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activites.MainActivity">
+    tools:context=".Activites.ContactDetailsActivity">
 
-
-    <!--<FrameLayout-->
-        <!--android:layout_width="0dp"-->
-        <!--android:id="@+id/fragment_container"-->
-        <!--android:layout_height="0dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent">-->
-
-    <!--</FrameLayout>-->
     <fragment
-        android:id="@+id/fragment3"
-        android:name="com.cs541.abel.contactsapp.Fragments.ContactsFragment"
+        android:id="@+id/fragment"
+        android:name="com.cs541.abel.contactsapp.Fragments.ContactDetailsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

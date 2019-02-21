@@ -1,6 +1,7 @@
 package com.cs541.abel.contactsapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.cs541.abel.contactsapp.Activites.ContactDetailsActivity;
+import com.cs541.abel.contactsapp.Activites.ContactProfileActivity;
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
 import com.cs541.abel.contactsapp.R;
 
@@ -53,18 +56,8 @@ public class ContactsFragment extends Fragment  {
         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, this.contacts);
         this.contactsList.setAdapter(adapter);
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-            //Do some stuff
-            Fragment contactDetailsFragment = new ContactDetailsFragment();
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment2_container, contactDetailsFragment).addToBackStack("")
-                    .commit();
-        }
-
-
-            this.deleteButton.setOnClickListener(new View.OnClickListener() {
+        this.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckBox cb;
@@ -111,18 +104,13 @@ public class ContactsFragment extends Fragment  {
                     Fragment contactDetailsFragment = new ContactDetailsFragment();
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
-                            .replace(R.id.fragment2_container, contactDetailsFragment).addToBackStack("")
+                            .replace(R.id.fragment2_container, contactDetailsFragment)
                             .commit();
 
                 } else {
 
-
-                    Fragment contactDetailsFragment = new ContactDetailsFragment();
-
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, contactDetailsFragment).addToBackStack("")
-                            .commit();
+                    Intent intent = new Intent(getActivity(), ContactDetailsActivity.class);
+                    startActivity(intent);
 
                 }
 
@@ -135,9 +123,10 @@ public class ContactsFragment extends Fragment  {
         this.contactsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "pos: " + Integer.toString(position), Toast.LENGTH_SHORT).show();
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("selectedPosition", position);
+
 
                 if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
@@ -146,19 +135,17 @@ public class ContactsFragment extends Fragment  {
 
                     FragmentManager fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction()
-                            .replace(R.id.fragment2_container, contactsProfileFragment).addToBackStack("")
+                            .replace(R.id.fragment2_container, contactsProfileFragment)
                             .commit();
 
 
                 } else {
 
-                    Fragment contactsProfileFragment = new ContactsProfileFragment();
-                    contactsProfileFragment.setArguments(bundle);
+                    Intent intent = new Intent(getActivity(), ContactProfileActivity.class);
+                    intent.putExtra("selectedPosition", position);
 
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, contactsProfileFragment).addToBackStack("")
-                            .commit();
+                    getActivity().startActivity(intent);
+
                 }
 
 
@@ -179,6 +166,9 @@ public class ContactsFragment extends Fragment  {
         this.contactsList.setAdapter(adapter);
 
     }
+
+
+
 
     private void loadData() {
 

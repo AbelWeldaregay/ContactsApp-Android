@@ -1,7 +1,16 @@
 package com.cs541.abel.contactsapp.Models;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.widget.ImageView;
+
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
+import com.cs541.abel.contactsapp.R;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Person {
@@ -9,25 +18,44 @@ public class Person {
     public int id;
     public String name;
     public String phoneNumber;
-    public Uri imagePath;
+    public String imagePath;
     public ArrayList<Person> connections;
+    private Bitmap pictureBitmap;
+    private File file;
 
     public Person(){}
 
-    public Person(int id, String name, String phoneNumber, Uri imagePath, ArrayList<Person> connections) {
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.imagePath = imagePath;
-        this.connections = connections;
-    }
 
-    public Person( String name, String phoneNumber, ArrayList<Person> connections) {
+    public Person( String name, String phoneNumber, ArrayList<Person> connections, String filePath) {
 
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.connections = connections;
+        this.imagePath = filePath;
     }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public Bitmap getPictureBitmap() {
+        return pictureBitmap;
+    }
+
+    public File getFile() {
+        return this.file;
+    }
+
+    public Person(String name, String phoneNumber, ArrayList<Person> connections, Bitmap bitmap, File file) {
+
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.connections = connections;
+        this.pictureBitmap = bitmap;
+        this.file = file;
+
+    }
+
 
     public int getId() {
         return id;
@@ -45,9 +73,11 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setImagePath(Uri imagePath) {
-        this.imagePath = imagePath;
+    public void appendConnections(Person person) {
+
+        this.connections.add(person);
     }
+
 
     public void setConnections(ArrayList<Person> connections) {
         this.connections = connections;
@@ -59,10 +89,6 @@ public class Person {
 
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public Uri getImagePath() {
-        return imagePath;
     }
 
     public ArrayList<Person> getConnections() {

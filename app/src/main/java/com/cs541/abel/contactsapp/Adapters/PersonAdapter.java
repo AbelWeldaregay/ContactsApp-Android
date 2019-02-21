@@ -1,7 +1,10 @@
 package com.cs541.abel.contactsapp.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.cs541.abel.contactsapp.Models.Person;
 import com.cs541.abel.contactsapp.R;
-
 import java.util.ArrayList;
 
 public class PersonAdapter extends ArrayAdapter<Person> {
@@ -43,19 +45,27 @@ public class PersonAdapter extends ArrayAdapter<Person> {
         this.mResource = resource;
     }
 
+
+
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         String name = getItem(position).getName();
         String phoneNumber = getItem(position).getPhoneNumber();
+        Bitmap pictureBitmap = getItem(position).getPictureBitmap();
+        String imagePath = getItem(position).getImagePath();
+
+        Log.i("IMAGE PATH ADAPTER: ", imagePath);
+
         int id = getItem(position).getId();
         ArrayList<Person> links = getItem(position).getConnections();
 
-        Person person = new Person(name, phoneNumber, links);
+        Person person = new Person(name, phoneNumber, links, imagePath);
         ViewHolder holder;
 
         if (convertView == null) {
+
             LayoutInflater inflater = LayoutInflater.from(this.mContext);
             convertView = inflater.inflate(this.mResource, parent, false);
 
@@ -63,8 +73,11 @@ public class PersonAdapter extends ArrayAdapter<Person> {
             holder.name = convertView.findViewById(R.id.personNameTextView);
             holder.picture = convertView.findViewById(R.id.imageView);
             holder.checkBox = convertView.findViewById(R.id.checkItem);
+
             convertView.setTag(holder);
+
         } else {
+
             holder = (ViewHolder) convertView.getTag();
 
         }
@@ -84,8 +97,11 @@ public class PersonAdapter extends ArrayAdapter<Person> {
             }
         });
 
+
+
         //set the state of the checkbox based on if it is checked or not
         holder.checkBox.setChecked(checkedPositions.contains(index));
+        holder.picture.setImageURI(Uri.parse(imagePath));
         holder.checkBox.setTag(position);
         holder.name.setText(name);
 

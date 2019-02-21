@@ -1,0 +1,19 @@
+<!-- This is the second view in the second activity -->
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:transitionName="@string/transition_string"
+    tools:context="com.cs541.abel.contactsapp.Activites.ImageActivity"
+    android:background="#084072">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@mipmap/ic_launcher" />
+</RelativeLayout>

@@ -2,16 +2,21 @@ package com.cs541.abel.contactsapp.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cs541.abel.contactsapp.Activites.ContactDetailsActivity;
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
 import com.cs541.abel.contactsapp.Models.Person;
 import com.cs541.abel.contactsapp.R;
@@ -27,24 +32,32 @@ public class ContactsProfileFragment extends Fragment {
     private TextView nameTextView;
     private TextView phoneNumberTextView;
     private ListView connectionsListView;
+    private ImageView profilePictureImageView;
+
     private ArrayList<com.cs541.abel.contactsapp.Models.Person> contacts;
     public static final String FILE_NAME = "ContactsObject";
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
 
         View view = inflater.inflate(R.layout.fragment_contact_profile, container, false);
+        // Set title bar
+
         this.contacts = new ArrayList<com.cs541.abel.contactsapp.Models.Person>();
 
         Bundle bundle = this.getArguments();
-        this.selectedPosition = getArguments().getInt("selectedPosition");
+        this.selectedPosition = bundle.getInt("selectedPosition");
         loadData();
-        Toast.makeText(getContext(), Integer.toString(selectedPosition), Toast.LENGTH_SHORT).show();
+
         this.nameTextView = view.findViewById(R.id.nameTextView);
         this.phoneNumberTextView = view.findViewById(R.id.phoneNumberTextView);
         this.connectionsListView = view.findViewById(R.id.connectionsListView);
+        this.profilePictureImageView = view.findViewById(R.id.profilePictureImageView);
 
+        this.profilePictureImageView.setImageURI(Uri.parse(this.contacts.get(this.selectedPosition).getImagePath()));
         this.nameTextView.setText(this.contacts.get(selectedPosition).getName());
         this.phoneNumberTextView.setText(this.contacts.get(selectedPosition).getPhoneNumber());
         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row,  this.contacts.get(this.selectedPosition).getConnections());

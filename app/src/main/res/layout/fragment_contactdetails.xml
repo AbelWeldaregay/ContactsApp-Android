@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ContactDetailsFragment">
 
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:contentDescription="enlargeImage" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -18,6 +24,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/profilePictureImageView"
+            android:transitionName="@string/transition_string"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick Image"
+            android:id="@+id/pickImageButton"
+            android:layout_gravity="center"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +49,7 @@
         <EditText
             android:id="@+id/personNameEditText"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:hint="Enter Name"
             android:textColor="@color/black"
@@ -43,6 +65,7 @@
         <EditText
             android:id="@+id/phoneNumberEditText"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:hint="Enter Phone Number"
             android:textColor="@color/black"
@@ -71,5 +94,6 @@
         android:text="Add Person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
