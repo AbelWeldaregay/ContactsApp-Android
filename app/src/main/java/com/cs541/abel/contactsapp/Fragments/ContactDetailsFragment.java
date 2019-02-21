@@ -45,14 +45,6 @@ public class ContactDetailsFragment extends Fragment {
     private Button pickImageButton;
     private ListView connectionsListView;
     private ImageView imageView;
-    // Hold a reference to the current animator,
-    // so that it can be canceled mid-way.
-    private Animator mCurrentAnimator;
-
-    // The system "short" animation time duration, in milliseconds. This
-    // duration is ideal for subtle animations or animations that occur
-    // very frequently.
-    private int mShortAnimationDuration;
 
     private Uri filePath = Uri.parse("android.resource://com.cs541.abel.contactsapp/drawable/abelweldaregay");
     private final int PICK_IMAGE_REQUEST = 71;
@@ -112,6 +104,7 @@ public class ContactDetailsFragment extends Fragment {
         this.nameEditText = view.findViewById(R.id.personNameEditText);
         this.phoneNumberEditText = view.findViewById(R.id.phoneNumberEditText);
         this.imageView = view.findViewById(R.id.profilePictureImageView);
+        this.imageView.setImageURI(filePath);
         this.pickImageButton = view.findViewById(R.id.pickImageButton);
 
         this.imageView.setOnClickListener(new View.OnClickListener() {
@@ -218,7 +211,7 @@ public class ContactDetailsFragment extends Fragment {
 
         // Ordinary Intent for launching a new activity
         Intent intent = new Intent(getActivity(), ImageActivity.class);
-
+        intent.putExtra("imagePath", filePath.toString());
         // Get the transition name from the string
         String transitionName = getString(R.string.transition_string);
 
@@ -246,7 +239,7 @@ public class ContactDetailsFragment extends Fragment {
             if(cb.isChecked()){
                 int pos = (Integer) cb.getTag();
                 this.connections.add(this.contacts.get(pos));
-                this.contacts.get(pos).appendConnections(person);
+                //this.contacts.get(pos).appendConnections(person);
             }
         }
 
@@ -312,11 +305,5 @@ public class ContactDetailsFragment extends Fragment {
         editor.apply();
 
     }
-
-
-
-
-
-
 
 }
