@@ -1,6 +1,5 @@
 package com.cs541.abel.contactsapp.Fragments;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -166,9 +165,10 @@ public class ContactDetailsFragment extends Fragment {
                 } else {
 
 
+                    addConnections(connectionsListView);
+                    Person person = new Person(name, phoneNumber, connections, filePath.toString());
+                  //  addPersonToConnections(person);
 
-                    com.cs541.abel.contactsapp.Models.Person person = new com.cs541.abel.contactsapp.Models.Person(name, phoneNumber, connections, filePath.toString());
-                    addConnections(connectionsListView, person);
                    boolean flag = false;
                     for(int i = 0; i< contacts.size(); i++){
                         if(person.equals(contacts.get(i))) {
@@ -229,21 +229,49 @@ public class ContactDetailsFragment extends Fragment {
 
     }
 
-    public void addConnections(ListView listView, Person person) {
+    public void addConnections(ListView listView) {
 
         CheckBox cb;
         ListView mainListView = listView;
 
+
         for(int x = 0; x<mainListView.getChildCount(); x++) {
             cb = (CheckBox) mainListView.getChildAt(x).findViewById(R.id.checkItem);
+
             if(cb.isChecked()){
                 int pos = (Integer) cb.getTag();
                 this.connections.add(this.contacts.get(pos));
-                //this.contacts.get(pos).appendConnections(person);
+
             }
+
         }
 
     }
+
+    public void addPersonToConnections(Person person) {
+
+
+
+
+        for(int i = 0; i < this.connections.size(); i++) {
+
+            for(int j = 0; j < this.contacts.size(); j++) {
+
+                if(this.contacts.get(j).equals(this.connections.get(i))) {
+
+                    Log.i("contactsDetailsFragment", "they are equal!");
+                    this.contacts.get(j).connections.add(person);
+
+                }
+
+
+
+            }
+
+        }
+
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -285,11 +313,11 @@ public class ContactDetailsFragment extends Fragment {
         Gson gson = new Gson();
 
         String json = sharedPreferences.getString("contacts", null);
-        Type type = new TypeToken<ArrayList<com.cs541.abel.contactsapp.Models.Person>>() {}.getType();
+        Type type = new TypeToken<ArrayList<Person>>() {}.getType();
         this.contacts = gson.fromJson(json, type);
 
         if(contacts == null) {
-            this.contacts = new ArrayList<com.cs541.abel.contactsapp.Models.Person>();
+            this.contacts = new ArrayList<>();
         }
 
     }

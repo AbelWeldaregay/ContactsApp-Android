@@ -15,8 +15,6 @@ public class ContactDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.contactdetails_action_bar);
 
-
-
     }
 
 

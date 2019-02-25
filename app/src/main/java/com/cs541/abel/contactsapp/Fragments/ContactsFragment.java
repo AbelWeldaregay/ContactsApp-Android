@@ -180,7 +180,7 @@ public class ContactsFragment extends Fragment  {
         this.contacts = gson.fromJson(json, type);
 
         if(contacts == null) {
-            this.contacts = new ArrayList<com.cs541.abel.contactsapp.Models.Person>();
+            this.contacts = new ArrayList<>();
         }
 
     }

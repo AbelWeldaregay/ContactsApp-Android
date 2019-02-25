@@ -23,9 +23,6 @@ public class Person {
     private Bitmap pictureBitmap;
     private File file;
 
-    public Person(){}
-
-
     public Person( String name, String phoneNumber, ArrayList<Person> connections, String filePath) {
 
         this.name = name;
@@ -34,26 +31,17 @@ public class Person {
         this.imagePath = filePath;
     }
 
+    public Person(){
+        this.connections = new ArrayList<>();
+        this.id = 0;
+    }
+
     public String getImagePath() {
         return imagePath;
     }
 
     public Bitmap getPictureBitmap() {
         return pictureBitmap;
-    }
-
-    public File getFile() {
-        return this.file;
-    }
-
-    public Person(String name, String phoneNumber, ArrayList<Person> connections, Bitmap bitmap, File file) {
-
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.connections = connections;
-        this.pictureBitmap = bitmap;
-        this.file = file;
-
     }
 
 
@@ -75,7 +63,14 @@ public class Person {
 
     public void appendConnections(Person person) {
 
-        this.connections.add(person);
+        if(this.connections == null) {
+            this.connections = new ArrayList<>();
+            this.connections.add(person);
+        } else {
+
+            this.connections.add(person);
+        }
+
     }
 
 

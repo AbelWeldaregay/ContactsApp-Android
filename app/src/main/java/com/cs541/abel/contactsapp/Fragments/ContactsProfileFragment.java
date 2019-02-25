@@ -46,7 +46,7 @@ public class ContactsProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_contact_profile, container, false);
         // Set title bar
 
-        this.contacts = new ArrayList<com.cs541.abel.contactsapp.Models.Person>();
+        this.contacts = new ArrayList<>();
 
         Bundle bundle = this.getArguments();
         this.selectedPosition = bundle.getInt("selectedPosition");

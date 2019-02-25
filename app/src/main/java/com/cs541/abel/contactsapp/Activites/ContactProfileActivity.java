@@ -2,6 +2,7 @@ package com.cs541.abel.contactsapp.Activites;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -15,6 +16,9 @@ public class ContactProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_profile);
+
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.contactprofile_action_bar);
 
         Intent intent = getIntent();
         int selectedPosition = intent.getIntExtra("selectedPosition", 0);
