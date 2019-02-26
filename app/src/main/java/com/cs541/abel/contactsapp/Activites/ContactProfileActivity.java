@@ -35,7 +35,5 @@ public class ContactProfileActivity extends AppCompatActivity {
                 .replace(R.id.contact_profile_container, contactsProfileFragment)
                 .commit();
 
-
-
     }
 }

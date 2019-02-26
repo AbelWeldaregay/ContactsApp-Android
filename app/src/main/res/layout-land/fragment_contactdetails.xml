@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.ContactDetailsFragment">
 
-    <ImageView
-        android:id="@+id/expanded_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        android:contentDescription="enlargeImage" />
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -27,8 +20,8 @@
         <ImageView
             android:id="@+id/profilePictureImageView"
             android:transitionName="@string/transition_string"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@mipmap/ic_launcher"
             android:layout_gravity="center"/>
 
@@ -43,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="Name:"/>
 
         <EditText
@@ -53,13 +46,13 @@
             android:layout_height="wrap_content"
             android:hint="Enter Name"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="Phone Number:"/>
 
         <EditText
@@ -69,14 +62,14 @@
             android:layout_height="wrap_content"
             android:hint="Enter Phone Number"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Relationships:"
             android:textColor="@color/black"
-            android:textSize="20dp"/>
+            android:textSize="15dp"/>
 
 
         <ListView
@@ -91,6 +84,7 @@
         android:id="@+id/addContactButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
         android:text="Add Person"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -1,16 +1,7 @@
 package com.cs541.abel.contactsapp.Models;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.widget.ImageView;
-
-import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
-import com.cs541.abel.contactsapp.R;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Person {

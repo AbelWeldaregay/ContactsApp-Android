@@ -5,8 +5,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +13,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.cs541.abel.contactsapp.Activites.ContactDetailsActivity;
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
 import com.cs541.abel.contactsapp.Models.Person;
 import com.cs541.abel.contactsapp.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 

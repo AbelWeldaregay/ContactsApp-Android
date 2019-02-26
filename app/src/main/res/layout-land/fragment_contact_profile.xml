@@ -22,9 +22,9 @@
 
             <ImageView
                 android:id="@+id/profilePictureImageView"
+                android:layout_width="75dp"
                 android:layout_gravity="center"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="75dp"
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
@@ -34,7 +34,7 @@
                 android:background="@color/grey"
                 android:text="Name:"
                 android:textColor="@color/white"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 tools:text="Name:" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/greendark"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -52,7 +52,7 @@
                 android:background="@color/grey"
                 android:text="Phone Number:"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/phoneNumberTextView"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/greendark"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -69,7 +69,7 @@
                 android:background="@color/grey"
                 android:text="Relationships:"
                 android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <ListView
                 android:id="@+id/connectionsListView"

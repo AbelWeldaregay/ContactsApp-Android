@@ -167,17 +167,17 @@ public class ContactDetailsFragment extends Fragment {
 
                     addConnections(connectionsListView);
                     Person person = new Person(name, phoneNumber, connections, filePath.toString());
-                  //  addPersonToConnections(person);
 
-                   boolean flag = false;
+                    boolean flag = false;
                     for(int i = 0; i< contacts.size(); i++){
+
                         if(person.equals(contacts.get(i))) {
                             flag = true;
-
                         }
                     }
 
                     if(flag == false) {
+
                         contacts.add(person);
                         saveData();
                         Toast.makeText(getContext(), "Successfully add to contacts", Toast.LENGTH_SHORT).show();
