@@ -1,10 +1,12 @@
 package com.cs541.abel.contactsapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,26 +57,29 @@ public class ContactsProfileFragment extends Fragment {
         this.profilePictureImageView.setImageURI(Uri.parse(this.contacts.get(this.selectedPosition).getImagePath()));
         this.nameTextView.setText(this.contacts.get(selectedPosition).getName());
         this.phoneNumberTextView.setText(this.contacts.get(selectedPosition).getPhoneNumber());
+
         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row,  this.contacts.get(this.selectedPosition).getConnections());
         this.connectionsListView.setAdapter(adapter);
+
+
 
         connectionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), Integer.toString(contacts.size()), Toast.LENGTH_SHORT).show();
-                for(int i = 0; i < contacts.size(); i++) {
 
-                    if(contacts.get(i).equals(contacts.get(selectedPosition).getConnections().get(position))){
-
-                        nameTextView.setText(contacts.get(i).getName());
-                        phoneNumberTextView.setText(contacts.get(i).getPhoneNumber());
-                        PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, contacts.get(selectedPosition).getConnections().get(position).getConnections());
-                        connectionsListView.setAdapter(adapter);
-                    }
+                  Log.i("SELECTED POSITION: ", Integer.toString(selectedPosition));
+                  Log.i("POSITION: ", Integer.toString(position));
+                  Log.i("CONTACTS SIZE: ", Integer.toString(contacts.size()));
+                  Log.i("CONNECTIONS SIZE", Integer.toString(contacts.get(selectedPosition).getConnections().size()));
 
 
-                }
+                  profilePictureImageView.setImageURI(Uri.parse(contacts.get(selectedPosition).getConnections().get(position).getImagePath()));
+                  nameTextView.setText(contacts.get(selectedPosition).getConnections().get(position).getName());
+                  phoneNumberTextView.setText(contacts.get(selectedPosition).getConnections().get(position).getPhoneNumber());
+                  PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, contacts.get(selectedPosition).getConnections().get(position).getConnections());
+                  connectionsListView.setAdapter(adapter);
 
+                  selectedPosition = contacts.indexOf(contacts.get(selectedPosition).getConnections().get(position));
 
             }
         });
@@ -94,7 +99,7 @@ public class ContactsProfileFragment extends Fragment {
         this.contacts = gson.fromJson(json, type);
 
         if(contacts == null) {
-            this.contacts = new ArrayList<com.cs541.abel.contactsapp.Models.Person>();
+            this.contacts = new ArrayList<>();
         }
 
     }

@@ -16,12 +16,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.cs541.abel.contactsapp.Activites.ContactDetailsActivity;
 import com.cs541.abel.contactsapp.Activites.ContactProfileActivity;
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
 import com.cs541.abel.contactsapp.R;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import com.cs541.abel.contactsapp.Models.*;
@@ -148,8 +146,6 @@ public class ContactsFragment extends Fragment  {
 
                 }
 
-
-
             }
         });
 
@@ -166,8 +162,6 @@ public class ContactsFragment extends Fragment  {
         this.contactsList.setAdapter(adapter);
 
     }
-
-
 
 
     private void loadData() {
@@ -196,8 +190,5 @@ public class ContactsFragment extends Fragment  {
         editor.apply();
 
     }
-
-
-
 
 }

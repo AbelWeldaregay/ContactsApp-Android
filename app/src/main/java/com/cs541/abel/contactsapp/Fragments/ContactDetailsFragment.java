@@ -81,11 +81,12 @@ public class ContactDetailsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_IMAGE_REQUEST )
+        if(requestCode == PICK_IMAGE_REQUEST && data != null )
         {
-            this.filePath = data.getData();
-            this.imageView.setImageURI(this.filePath);
-            Log.i("FILEPATH: ", filePath.toString());
+               this.filePath = data.getData();
+               this.imageView.setImageURI(this.filePath);
+               Log.i("FILEPATH: ", filePath.toString());
+
         }
 
 
