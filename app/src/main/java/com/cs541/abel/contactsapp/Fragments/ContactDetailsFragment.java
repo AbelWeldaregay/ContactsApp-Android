@@ -3,6 +3,7 @@ package com.cs541.abel.contactsapp.Fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -11,12 +12,17 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -97,6 +103,7 @@ public class ContactDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_contactdetails, container, false);
+        final LayoutInflater myInflater = inflater;
         loadData();
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -106,6 +113,7 @@ public class ContactDetailsFragment extends Fragment {
         this.imageView = view.findViewById(R.id.profilePictureImageView);
         this.imageView.setImageURI(filePath);
         this.pickImageButton = view.findViewById(R.id.pickImageButton);
+
 
         this.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,8 +132,6 @@ public class ContactDetailsFragment extends Fragment {
             }
         });
 
-
-
         if(savedInstanceState != null) {
 
             Toast.makeText(getContext(), savedInstanceState.getString("nameInput", "empty"), Toast.LENGTH_SHORT).show();
@@ -135,19 +141,25 @@ public class ContactDetailsFragment extends Fragment {
         }
 
 
+
         this.addPersonButton = view.findViewById(R.id.addContactButton);
 
         this.connectionsListView = view.findViewById(R.id.connectionsListView);
         this.connectionsListView.setAdapter(adapter);
 
+
         this.connectionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(getActivity(), ContactProfileActivity.class);
                 intent.putExtra("selectedPosition", position);
                 startActivity(intent);
+
             }
         });
+
+
 
         addPersonButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +180,6 @@ public class ContactDetailsFragment extends Fragment {
 
                     addConnections(connectionsListView);
                     Person person = new Person(name, phoneNumber, connections, filePath.toString());
-
                     boolean flag = false;
                     for(int i = 0; i< contacts.size(); i++){
 
@@ -180,6 +191,7 @@ public class ContactDetailsFragment extends Fragment {
                     if(flag == false) {
 
                         contacts.add(person);
+                     //   addPersonToConnections(person);
                         saveData();
                         Toast.makeText(getContext(), "Successfully add to contacts", Toast.LENGTH_SHORT).show();
                         nameEditText.setText("");
@@ -189,6 +201,16 @@ public class ContactDetailsFragment extends Fragment {
                         uncheckAllChildCascade(connectionsListView);
                         PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row, contacts);
                         connectionsListView.setAdapter(adapter);
+
+                        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                            ListView contactsListView = getActivity().findViewById(R.id.contactsList);
+                            PersonAdapter adapter1 = new PersonAdapter(getContext(), R.layout.contacts_row, contacts);
+                            contactsListView.setAdapter(adapter1);
+
+
+                        }
+
+
 
                     } else {
 
@@ -251,25 +273,30 @@ public class ContactDetailsFragment extends Fragment {
 
     public void addPersonToConnections(Person person) {
 
+        int sp = this.contacts.indexOf(person);
 
-
+        String name = this.contacts.get(sp).getName();
+        String phoneNumber = this.contacts.get(sp).getPhoneNumber();
+        ArrayList<Person> connections = this.contacts.get(sp).getConnections();
+        String imagePath = this.contacts.get(sp).getImagePath();
 
         for(int i = 0; i < this.connections.size(); i++) {
 
             for(int j = 0; j < this.contacts.size(); j++) {
 
-                if(this.contacts.get(j).equals(this.connections.get(i))) {
 
-                    Log.i("contactsDetailsFragment", "they are equal!");
-                    this.contacts.get(j).connections.add(person);
+                if(this.contacts.get(j).equals(this.connections.get(i)))
+                {
+                    this.contacts.get(j).appendConnections(new Person(name, phoneNumber, connections, imagePath));
 
                 }
-
-
 
             }
 
         }
+
+        //saveData();
+        //selectedPosition = contacts.indexOf(contacts.get(selectedPosition).getConnections().get(position));
 
     }
 

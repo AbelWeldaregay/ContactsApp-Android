@@ -76,6 +76,9 @@ public class PersonAdapter extends ArrayAdapter<Person> {
 
             convertView.setTag(holder);
 
+
+
+
         } else {
 
             holder = (ViewHolder) convertView.getTag();
