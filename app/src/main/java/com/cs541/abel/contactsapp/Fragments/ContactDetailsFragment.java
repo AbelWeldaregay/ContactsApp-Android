@@ -12,22 +12,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.cs541.abel.contactsapp.Activites.ContactProfileActivity;
 import com.cs541.abel.contactsapp.Activites.ImageActivity;
 import com.cs541.abel.contactsapp.Adapters.PersonAdapter;
@@ -134,7 +128,6 @@ public class ContactDetailsFragment extends Fragment {
 
         if(savedInstanceState != null) {
 
-            Toast.makeText(getContext(), savedInstanceState.getString("nameInput", "empty"), Toast.LENGTH_SHORT).show();
             this.nameEditText.setText(savedInstanceState.getString("nameInput", "empty"));
             this.phoneNumberEditText.setText(savedInstanceState.getString("phoneNumberInput", "empty"));
 
@@ -207,10 +200,7 @@ public class ContactDetailsFragment extends Fragment {
                             PersonAdapter adapter1 = new PersonAdapter(getContext(), R.layout.contacts_row, contacts);
                             contactsListView.setAdapter(adapter1);
 
-
                         }
-
-
 
                     } else {
 

@@ -23,7 +23,6 @@ public class ContactProfileActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int selectedPosition = intent.getIntExtra("selectedPosition", 0);
 
-        Toast.makeText(this, Integer.toString(selectedPosition), Toast.LENGTH_SHORT).show();
         Bundle bundle = new Bundle();
         bundle.putInt("selectedPosition", selectedPosition);
 
