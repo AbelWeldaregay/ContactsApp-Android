@@ -295,9 +295,6 @@ public class ContactDetailsFragment extends Fragment {
 
         }
 
-        //saveData();
-        //selectedPosition = contacts.indexOf(contacts.get(selectedPosition).getConnections().get(position));
-
     }
 
 

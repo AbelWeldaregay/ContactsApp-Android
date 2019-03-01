@@ -55,13 +55,19 @@ public class ContactsProfileFragment extends Fragment {
         this.phoneNumberTextView = view.findViewById(R.id.phoneNumberTextView);
         this.connectionsListView = view.findViewById(R.id.connectionsListView);
         this.profilePictureImageView = view.findViewById(R.id.profilePictureImageView);
-        this.filePath = Uri.parse(this.contacts.get(this.selectedPosition).getImagePath());
-        this.profilePictureImageView.setImageURI(Uri.parse(this.contacts.get(this.selectedPosition).getImagePath()));
-        this.nameTextView.setText(this.contacts.get(selectedPosition).getName());
-        this.phoneNumberTextView.setText(this.contacts.get(selectedPosition).getPhoneNumber());
 
-        PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row,  this.contacts.get(this.selectedPosition).getConnections());
-        this.connectionsListView.setAdapter(adapter);
+        if(this.contacts.size() > this.selectedPosition) {
+
+            this.filePath = Uri.parse(this.contacts.get(this.selectedPosition).getImagePath());
+            this.profilePictureImageView.setImageURI(Uri.parse(this.contacts.get(this.selectedPosition).getImagePath()));
+            this.nameTextView.setText(this.contacts.get(selectedPosition).getName());
+            this.phoneNumberTextView.setText(this.contacts.get(selectedPosition).getPhoneNumber());
+
+            PersonAdapter adapter = new PersonAdapter(getContext(), R.layout.contacts_row,  this.contacts.get(this.selectedPosition).getConnections());
+            this.connectionsListView.setAdapter(adapter);
+
+        }
+
 
         profilePictureImageView.setOnClickListener(new View.OnClickListener() {
             @Override
