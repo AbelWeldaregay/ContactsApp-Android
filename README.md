@@ -22,4 +22,8 @@ right side
 - When a user clicks the contact name under “relationship” in “Contact Details”, it
 jumps to the “Contact Profile” of the clicked name. The clicked contact profile
  also displays on the right side in the landscape view
+
+# Screenshots - Potrait
+
+# Screenshots - Landscape
  
