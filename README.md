@@ -38,3 +38,7 @@ jumps to the “Contact Profile” of the clicked name. The clicked contact prof
   &nbsp
 <img height=200 src = "https://lh3.googleusercontent.com/vzrKQwFQZuxAnW8o8X1n5YEq-vNsETNOULfzrnUG6lDfh1rNwxMszxFeIeQkmTx-XpoR=w1920-h969-rw">
   &nbsp
+ 
+ # Available in the Google Play Store
+ ## Available in the Google Play Store
+[Click here to download](https://play.google.com/store/apps/details?id=com.cs541.abel.contactsapp&hl=en)
