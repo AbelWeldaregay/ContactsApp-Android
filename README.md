@@ -24,6 +24,18 @@ jumps to the “Contact Profile” of the clicked name. The clicked contact prof
  also displays on the right side in the landscape view
 
 # Screenshots - Potrait
+<p float="left">
+<img width=200 src = "https://lh3.googleusercontent.com/uFjkV_dxN4L__79ghrrhnWAEanNzSxymRRwhBkreJgn-9c_F_FhzOOwGRqispzzzLlKf=w1920-h969-rw">
+  &nbsp
+<img width=200 src = "https://lh3.googleusercontent.com/PUl89Js7enVxmKEtrvSMfiV0Ibq_2wpPRPbnu9IVy5-B8XJsldSAPNpAckw0XRNmArE=w1920-h969-rw">
+  &nbsp
+<img width=200 src = "https://lh3.googleusercontent.com/5zU9-ErQsGNQ_Ojv2VjmKboPbOjjhHYWyejT5bDoUCAd9kVSskbuMcUi5MlSYHnuo3_Z=w1920-h969-rw">
+</p>
 
 # Screenshots - Landscape
- 
+<p float="left">
+<img height=200 src = "https://lh3.googleusercontent.com/kRtQXdaZ2b9iFz-TJLIfsJPvu05BgtyFBm5whxke1FvVfYtMuibhSkTSQQwwtYdVwg=w1920-h969-rw">
+  &nbsp
+<img height=200 src = "https://lh3.googleusercontent.com/vzrKQwFQZuxAnW8o8X1n5YEq-vNsETNOULfzrnUG6lDfh1rNwxMszxFeIeQkmTx-XpoR=w1920-h969-rw">
+  &nbsp
+<img width=200 src = "https://lh3.googleusercontent.com/5zU9-ErQsGNQ_Ojv2VjmKboPbOjjhHYWyejT5bDoUCAd9kVSskbuMcUi5MlSYHnuo3_Z=w1920-h969-rw">
