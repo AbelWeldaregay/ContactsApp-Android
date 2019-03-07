@@ -38,4 +38,3 @@ jumps to the “Contact Profile” of the clicked name. The clicked contact prof
   &nbsp
 <img height=200 src = "https://lh3.googleusercontent.com/vzrKQwFQZuxAnW8o8X1n5YEq-vNsETNOULfzrnUG6lDfh1rNwxMszxFeIeQkmTx-XpoR=w1920-h969-rw">
   &nbsp
-<img width=200 src = "https://lh3.googleusercontent.com/5zU9-ErQsGNQ_Ojv2VjmKboPbOjjhHYWyejT5bDoUCAd9kVSskbuMcUi5MlSYHnuo3_Z=w1920-h969-rw">
