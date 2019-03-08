@@ -2,7 +2,7 @@
 An android application that keeps track of your contacts.
 
 # Key Features
-- ability to store a photo with each contact, which is displayed near the upper
+- Ability to store a photo with each contact, which is displayed near the upper
 right corner of the contact details fragment
 - Scrollable ListView of all contacts
 - When a user clicks a contact name, displays the “Contact Profile” containing the
