@@ -1,4 +1,4 @@
-# ContactsApp-Android
+# 	MyContacts-Android
 An android application that keeps track of your contacts.
 
 # Key Features
