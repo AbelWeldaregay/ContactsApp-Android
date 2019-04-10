@@ -41,3 +41,6 @@ jumps to the “Contact Profile” of the clicked name. The clicked contact prof
  
  # Available in the Google Play Store
 [Click here to download](https://play.google.com/store/apps/details?id=com.cs541.abel.contactsapp&hl=en)
+
+### Rating
+- Rated 5 Stars in the Google Play Store
