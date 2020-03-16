@@ -23,9 +23,6 @@ right side
 jumps to the “Contact Profile” of the clicked name. The clicked contact profile
  also displays on the right side in the landscape view
 
-# Future Plans
-- Will be rewritten in Kotlin
-
 # Screenshots - Potrait
 <p float="left">
 <img width=200 src = "https://lh3.googleusercontent.com/uFjkV_dxN4L__79ghrrhnWAEanNzSxymRRwhBkreJgn-9c_F_FhzOOwGRqispzzzLlKf=w1920-h969-rw">
