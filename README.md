@@ -1,7 +1,7 @@
 # 	MyContacts-Android
 An android application that keeps track of your contacts.
 
-# Key Features
+## Key Features
 - Ability to store a photo with each contact, which is displayed near the upper
 right corner of the contact details fragment
 - Scrollable ListView of all contacts
@@ -23,3 +23,20 @@ right side
 jumps to the “Contact Profile” of the clicked name. The clicked contact profile
  also displays on the right side in the landscape view
 
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+- Android Studios
+### Installing
+1. Open the terminal on Mac or Bash on Windows
+
+2. CD to the desired directory
+
+3. Give the following commands to initialize a git repository and clone the project
+
+Note: This assumes you are using https, make sure to update the url if you are using ssh keys
+```
+git init .
+git clone https://github.com/AbelWeldaregay/To-Do-List-Android.git
+```
