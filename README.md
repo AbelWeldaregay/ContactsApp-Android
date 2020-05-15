@@ -38,5 +38,5 @@ These instructions will get you a copy of the project up and running on your loc
 Note: This assumes you are using https, make sure to update the url if you are using ssh keys
 ```
 git init .
-git clone https://github.com/AbelWeldaregay/To-Do-List-Android.git
+git clone https://github.com/AbelWeldaregay/MyContacts-Android.git
 ```
